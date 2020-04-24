@@ -2,7 +2,8 @@
 
 public class BowBehavior : MonoBehaviour
 {
-	public GameObject arrow;
+	public GameObject arrowPrefab;
+	public GameObject currentActiveArrow;
 	public Transform arrowPoint;
 	public float power;
 
@@ -65,9 +66,11 @@ public class BowBehavior : MonoBehaviour
 	/// </summary>
 	public void Release()
 	{
-		//Set arrow move vector and force
+		////Apply force to arrow
+		//currentActiveArrow.GetComponent<Rigidbody>().AddForce(Vector3.forward * power, ForceMode.VelocityChange);
 
-		//turn on arrow physics
+		////turn on arrow physics
+		//currentActiveArrow.GetComponent<Rigidbody>().useGravity = true;
 	}
 
 	/// <summary>
@@ -79,6 +82,6 @@ public class BowBehavior : MonoBehaviour
 		power = 0;
 
 		//spawn arrow
-		Instantiate(arrow, arrowPoint.position, arrowPoint.rotation);
+		currentActiveArrow = Instantiate(arrowPrefab, arrowPoint.position, arrowPoint.rotation);
 	}
 }

@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class ArrowBehavior : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	public float power;
+	Rigidbody rb;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	private void Start()
+	{
+		rb = GetComponent<Rigidbody>();
+		rb.AddRelativeForce(Vector3.up * 0.8f, ForceMode.VelocityChange); 
+	}
+
+
 }
